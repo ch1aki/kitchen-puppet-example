@@ -1,0 +1,32 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: puppet_apply
+  # Not installing chef since inspec is used for testing
+  require_chef_for_busser: false
+  manifests_path: manifests
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos-7
+    driver_plugin: docker
+    driver_config:
+      image: centos:7
+      privileged: true
+      remove_images: <%= ENV['KITCHEN_REMOVE_IMAGES'] || false %>
+      require_chef_omnibus: false
+      use_cache: <%= ENV['KITCHEN_USE_CACHE'] || true %>
+      use_sudo: false
+      volume: /sys/fs/cgroup
+      provision_command:
+        - yum install -y gem ruby
+      run_command: /sbin/init
+
+suites:
+  - name: default
+    provisioner:
+      manifest: site.pp

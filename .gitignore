@@ -1,0 +1,4 @@
+.bundle/
+.kitchen/
+.librarian/
+vendor/

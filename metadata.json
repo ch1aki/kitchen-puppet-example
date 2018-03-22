@@ -1,0 +1,11 @@
+{
+  "name": "prepare",
+  "version": "0.1.0",
+  "author": "example@example.com",
+  "summary": "Test-Kitchen - InSpec with Puppet on Dcoker Example",
+  "license": "Apache-2.0",
+  "source": "https://github.com/akichan22/kitchen-puppet-example",
+  "project_page": "https://github.com/akichan22/kitchen-puppet-example",
+  "issues_url": "https://github.com/akichan22/kitchen-puppet-example/issues",
+  "dependencies": []
+}
